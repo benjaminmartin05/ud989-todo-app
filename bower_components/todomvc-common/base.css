@@ -126,7 +126,7 @@ input[type="checkbox"] {
 	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
-	-o-box-sizing: border-box;
+	-o-box-sizing: border-;
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -229,7 +229,9 @@ label[for='toggle-all'] {
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: 34px;
+	/*left: 34px;*/
+	/*delete right:; if you want the ! in original position*/
+	right: 110px;
 	padding: 0 4px;
 	background-color: #fcfcfc;
 	/*color: #d00;*/
@@ -242,7 +244,30 @@ label[for='toggle-all'] {
 	appearance: none;
 }
 
+#todo-list li .secondary-btn {
+	display: none;
+	height: auto;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 90px;
+	padding: 0 4px;
+	background-color: #fcfcfc;
+	/*color: #d00;*/
+	: 10;z-index
+	/* Mobile Safari */
+	border: none;
+	-webkit-appearance: none;
+	-ms-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+}
+
 #todo-list li:hover .priority-btn {
+	display: block;
+}
+
+#todo-list li:hover .secondary-btn {
 	display: block;
 }
 
@@ -250,6 +275,9 @@ label[for='toggle-all'] {
 	content: '!';
 }
 
+#todo-list li .secondary-btn:after {
+	content: '*';
+}
 #todo-list li .toggle:after {
 	content: '✔';
 	/* 40 + a couple of pixels visual adjustment */
@@ -286,10 +314,17 @@ label[for='toggle-all'] {
 	color: #d66;
 }
 
+#todo-list li.secondary:not(.completed) label {
+	color: blue;
+}
+
 #todo-list li.priority .priority-btn:after {
 	color: #d66;
 }
 
+#todo-list li.secondary .secondary-btn:after {
+	color: blue;
+}
 #todo-list li .destroy,
 #todo-list li .edit-btn {
 	display: none;

@@ -13,7 +13,24 @@ var app = app || {};
 		// and ensure that each todo created has `title` and `completed` keys.
 		defaults: {
 			title: '',
-			completed: false
+			completed: false,
+			priority:false,
+			secondary:false
+		},
+
+		// Toggle the `priority` state of this todo item.
+		togglePriority: function () {
+			this.save({
+				priority: !this.get('priority')
+			});
+		},
+
+
+		// Toggle the `secondary` state of this todo item.
+		toggleSecondary: function () {
+			this.save({
+				secondary: !this.get('secondary')
+			});
 		},
 
 		// Toggle the `completed` state of this todo item.
